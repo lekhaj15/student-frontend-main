@@ -89,7 +89,7 @@
 							<div class="input-group">
 								<input
 									id="phone"
-									type="text"
+									type="date"
 									class="form-control"
 									required
 									maxlength="45"
@@ -154,7 +154,7 @@
 						<div class="col-6">
 							<button
 								class="btn btn-success btn-block font-weight-bold"
-								@click.prevent="patchStudentInformationUpdate"
+								@click.prevent="patchStaffInformationUpdate"
 							>
 								ADD
 							</button>
@@ -202,14 +202,14 @@ export default Vue.extend({
 				const res = await this.$axios.get(
 					`/institute/staff/show/${this.$route.params.id}/edit`
 				);
-				this.form.staff_id = res.data.student.student_id ?? '';
-				this.form.staff_name = res.data.student.student_name ?? '';
-				this.form.staff_email = res.data.student.student_email ?? '';
-				this.form.staff_phone = res.data.student.student_phone ?? '';
-				this.form.staff_dob = res.data.student.student_status ?? '';
-				this.form.category_id = res.data.student.category_information.id ?? '';
+				this.form.staff_id = res.data.staff.staff_id ?? '';
+				this.form.staff_name = res.data.staff.staff_name ?? '';
+				this.form.staff_email = res.data.staff.staff_email ?? '';
+				this.form.staff_phone = res.data.staff.staff_phone ?? '';
+				this.form.staff_dob = res.data.staff.staff_status ?? '';
+				this.form.category_id = res.data.staff.category_information.id ?? '';
 				this.form.subcategory_id =
-					res.data.student.subcategory_information.id ?? '';
+					res.data.staff.subcategory_information.id ?? '';
 			} catch (err) {
 				console.log(err);
 			}
@@ -253,7 +253,7 @@ export default Vue.extend({
 	},
 
 	created() {
-		this.getStudentEdit();
+		this.getStaffEdit();
 		this.getGradeCategory();
 	},
 });

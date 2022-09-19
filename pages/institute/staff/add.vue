@@ -89,7 +89,7 @@
 							<div class="input-group">
 								<input
 									id="full_name"
-									type="text"
+									type="date"
 									class="form-control"
 									required
 									maxlength="45"
