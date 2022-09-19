@@ -29,6 +29,14 @@
 					<b-nav-item to="/institute/dashboard">dashboard</b-nav-item>
 
 					<b-nav-item-dropdown
+						text="admin-institute"
+						toggle-class="nav-link-custom"
+					>
+						<b-dropdown-item to="/admin/institute">index</b-dropdown-item>
+						<b-dropdown-item to="/admin/institute/add">add</b-dropdown-item>
+					</b-nav-item-dropdown>
+
+					<b-nav-item-dropdown
 						text="Grade category"
 						toggle-class="nav-link-custom"
 					>
