@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "vue.vscode-typescript-vue-plugin",
+    "vue.volar",
+    "formulahendry.auto-close-tag",
+    "steoates.autoimport",
+    "formulahendry.auto-rename-tag",
+    "zaczero.bootstrap-v4-snippets",
+    "wmaurer.change-case",
+    "zignd.html-css-class-completion",
+    "esbenp.prettier-vscode",
+    "sdras.vue-vscode-snippets"
+  ]
+}
