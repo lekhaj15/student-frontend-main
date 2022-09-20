@@ -18,7 +18,23 @@
 
 						<div class="form-group col-md-6">
 							<label for="full_name" class="font-weight-bold">
-								Institute Name
+								Email
+								<span class="text-danger">*</span>
+							</label>
+							<div class="input-group">
+								<input
+									id="email"
+									type="email"
+									class="form-control"
+									required
+									maxlength="45"
+									v-model="form.email"
+								/>
+							</div>
+						</div>
+						<div class="form-group col-md-6">
+							<label for="full_name" class="font-weight-bold">
+								Name
 								<span class="text-danger">*</span>
 							</label>
 							<div class="input-group">
@@ -28,23 +44,23 @@
 									class="form-control"
 									required
 									maxlength="45"
-									v-model="form.institute_name"
+									v-model="form.full_name"
 								/>
 							</div>
 						</div>
 						<div class="form-group col-md-6">
 							<label for="full_name" class="font-weight-bold">
-								Email
+								Role
 								<span class="text-danger">*</span>
 							</label>
 							<div class="input-group">
 								<input
-									id="email"
+									id="full_name"
 									type="text"
 									class="form-control"
 									required
 									maxlength="45"
-									v-model="form.institute_email"
+									v-model="form.role"
 								/>
 							</div>
 						</div>
@@ -56,7 +72,7 @@
 						<div class="col-6">
 							<button
 								class="btn btn-success btn-block font-weight-bold"
-								@click.prevent="postGradeCategoryStore"
+								@click.prevent="postStore"
 							>
 								ADD
 							</button>
@@ -78,8 +94,8 @@ export default Vue.extend({
 	components: { ValidationErrors },
 	data: () => ({
 		form: {
-			institute_name: '',
-			institute_email: '',
+			full_name: '',
+			email: '',
 		},
 
 		validation_errors: [],

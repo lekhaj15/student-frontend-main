@@ -24,9 +24,9 @@
 					</nuxt-link>
 				</div>
 			</div>
-			<nav class="mt-2">
+			<nav class="mt-2" v-if="isAdminOnly">
 				<b-nav class="text-capitalize" vertical pills>
-					<b-nav-item to="/institute/dashboard">dashboard</b-nav-item>
+					<b-nav-item to="/admin/dashboard">dashboard</b-nav-item>
 
 					<b-nav-item-dropdown
 						text="admin-institute"
@@ -36,7 +36,7 @@
 						<b-dropdown-item to="/admin/institute/add">add</b-dropdown-item>
 					</b-nav-item-dropdown>
 
-					<b-nav-item-dropdown
+					<!-- <b-nav-item-dropdown
 						text="Grade category"
 						toggle-class="nav-link-custom"
 					>
@@ -70,8 +70,49 @@
 
 					<b-nav-item to="/contact-us">contact us</b-nav-item>
 
-					<b-nav-item @click="logout">logout</b-nav-item>
+					<b-nav-item @click="logout">logout</b-nav-item> -->
 				</b-nav>
+				<nav class="mt-2" v-if="isInstituteOnly">
+					<b-nav class="text-capitalize" vertical pills>
+						<b-nav-item to="/institute/dashboard">dashboard</b-nav-item>
+
+						<b-nav-item-dropdown
+							text="Grade category"
+							toggle-class="nav-link-custom"
+						>
+							<b-dropdown-item to="/institute/grade-category">
+								index
+							</b-dropdown-item>
+							<b-dropdown-item to="/institute/grade-category/add">
+								add
+							</b-dropdown-item>
+						</b-nav-item-dropdown>
+
+						<b-nav-item-dropdown
+							text="Grade Subcategory"
+							toggle-class="nav-link-custom"
+						>
+							<b-dropdown-item to="/institute/grade-subcategory">
+								index
+							</b-dropdown-item>
+							<b-dropdown-item to="/institute/grade-subcategory/add">
+								add
+							</b-dropdown-item>
+						</b-nav-item-dropdown>
+						<b-nav-item-dropdown text="Student" toggle-class="nav-link-custom">
+							<b-dropdown-item to="/institute/student">index</b-dropdown-item>
+							<b-dropdown-item to="/institute/student/add">add</b-dropdown-item>
+						</b-nav-item-dropdown>
+						<b-nav-item-dropdown text="Staff" toggle-class="nav-link-custom">
+							<b-dropdown-item to="/institute/staff">index</b-dropdown-item>
+							<b-dropdown-item to="/institute/staff/add">add</b-dropdown-item>
+						</b-nav-item-dropdown>
+
+						<b-nav-item to="/contact-us">contact us</b-nav-item>
+
+						<b-nav-item @click="logout">logout</b-nav-item>
+					</b-nav>
+				</nav>
 			</nav>
 		</VSimplebar>
 	</aside>
@@ -81,6 +122,20 @@
 import Vue from 'vue';
 
 export default Vue.extend({
+	data: () => ({
+		form: {},
+	}),
+	computed: {
+		isAdminOnly(): boolean {
+			return this.$auth.loggedIn && this.$auth.user?.role === 'admin';
+		},
+		isInstituteOnly(): boolean {
+			return this.$auth.loggedIn && this.$auth.user?.role === 'institute';
+		},
+		isGuestOnly(): boolean {
+			return !this.$auth.loggedIn;
+		},
+	},
 	methods: {
 		async logout() {
 			try {

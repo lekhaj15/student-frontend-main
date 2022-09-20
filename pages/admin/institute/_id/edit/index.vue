@@ -9,13 +9,13 @@
 				<div class="col-12">
 					<div class="card">
 						<div class="card-body form-row">
-							<h5 class="col-12 text-uppercase">CLASS:</h5>
+							<h5 class="col-12 text-uppercase">INSTITUTE</h5>
 							<div class="form-group col-12">
 								<hr class="m-0" />
 							</div>
 							<div class="form-group col-md-6">
 								<label for="full_name" class="font-weight-bold">
-									Category Name
+									Name
 									<span class="text-danger">*</span>
 								</label>
 								<div class="input-group">
@@ -25,7 +25,39 @@
 										class="form-control"
 										required
 										maxlength="45"
-										v-model="form.category_name"
+										v-model="form.full_name"
+									/>
+								</div>
+							</div>
+							<div class="form-group col-md-6">
+								<label for="full_name" class="font-weight-bold">
+									Email
+									<span class="text-danger">*</span>
+								</label>
+								<div class="input-group">
+									<input
+										id="email"
+										type="email"
+										class="form-control"
+										required
+										maxlength="45"
+										v-model="form.email"
+									/>
+								</div>
+							</div>
+							<div class="form-group col-md-6">
+								<label for="full_name" class="font-weight-bold">
+									Role
+									<span class="text-danger">*</span>
+								</label>
+								<div class="input-group">
+									<input
+										id="full_name"
+										type="text"
+										class="form-control"
+										required
+										maxlength="45"
+										v-model="form.role"
 									/>
 								</div>
 							</div>
@@ -34,7 +66,7 @@
 								<button
 									type="submit"
 									class="btn btn-success btn-block text-uppercase"
-									@click.prevent="patchGradeCategoryUpdate"
+									@click.prevent="patchUpdate"
 								>
 									UPDATE
 								</button>
@@ -53,31 +85,33 @@ import Vue from 'vue';
 import ValidationErrors from '@/components/ValidationErrors.vue';
 
 export default Vue.extend({
-	middleware: ['auth', 'is-institute'],
+	middleware: ['auth', 'is-admin'],
 	components: { ValidationErrors },
 	data: () => ({
 		form: {
-			category_name: '',
+			full_name: '',
+			email: '',
+			role: '',
 
 			_method: 'PATCH',
 		},
 		validation_errors: null,
 	}),
 	methods: {
-		async getCategoryEdit() {
+		async getinstituteEdit() {
 			try {
 				const res = await this.$axios.get(
-					`/institute/category/show/${this.$route.params.id}/edit`
+					`/admin/institute/show/${this.$route.params.id}/edit`
 				);
 				this.form.category_name = res.data.category.category_name ?? '';
 			} catch (err) {
 				console.log(err);
 			}
 		},
-		async patchGradeCategoryUpdate() {
+		async patchUpdate() {
 			try {
 				const res = await this.$axios.post(
-					`/institute/category/update/${this.$route.params.id}`,
+					`/admin/institute/update/${this.$route.params.id}`,
 					this.form
 				);
 				if (res.status === 202) {
@@ -95,7 +129,7 @@ export default Vue.extend({
 	},
 
 	created() {
-		this.getCategoryEdit();
+		this.getinstituteEdit();
 	},
 });
 </script>
