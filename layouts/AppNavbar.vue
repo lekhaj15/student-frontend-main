@@ -36,7 +36,7 @@
 						<b-dropdown-item to="/admin/institute/add">add</b-dropdown-item>
 					</b-nav-item-dropdown>
 
-					<!-- <b-nav-item-dropdown
+					<b-nav-item-dropdown
 						text="Grade category"
 						toggle-class="nav-link-custom"
 					>
@@ -70,7 +70,7 @@
 
 					<b-nav-item to="/contact-us">contact us</b-nav-item>
 
-					<b-nav-item @click="logout">logout</b-nav-item> -->
+					<b-nav-item @click="logout">logout</b-nav-item>
 				</b-nav>
 				<nav class="mt-2" v-if="isInstituteOnly">
 					<b-nav class="text-capitalize" vertical pills>
@@ -132,6 +132,13 @@ export default Vue.extend({
 		isInstituteOnly(): boolean {
 			return this.$auth.loggedIn && this.$auth.user?.role === 'institute';
 		},
+		isStudentOnly(): boolean {
+			return this.$auth.loggedIn && this.$auth.user?.role === 'student';
+		},
+		isStaffOnly(): boolean {
+			return this.$auth.loggedIn && this.$auth.user?.role === 'staff';
+		},
+
 		isGuestOnly(): boolean {
 			return !this.$auth.loggedIn;
 		},
