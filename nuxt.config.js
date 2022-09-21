@@ -100,6 +100,48 @@ export default {
 					user: { url: `${BACKEND_URL}/api/institute/auth/me`, method: 'get' },
 				},
 			},
+			staff: {
+				scheme: 'local',
+				token: {
+					property: 'access_token',
+					type: '',
+				},
+				user: {
+					property: 'staff',
+				},
+				endpoints: {
+					login: {
+						url: `${BACKEND_URL}/api/staff/auth/login`,
+						method: 'post',
+					},
+					logout: {
+						url: `${BACKEND_URL}/api/staff/auth/logout`,
+						method: 'post',
+					},
+					user: { url: `${BACKEND_URL}/api/staff/auth/me`, method: 'get' },
+				},
+			},
+			student: {
+				scheme: 'local',
+				token: {
+					property: 'access_token',
+					type: '',
+				},
+				user: {
+					property: 'student',
+				},
+				endpoints: {
+					login: {
+						url: `${BACKEND_URL}/api/student/auth/login`,
+						method: 'post',
+					},
+					logout: {
+						url: `${BACKEND_URL}/api/student/auth/logout`,
+						method: 'post',
+					},
+					user: { url: `${BACKEND_URL}/api/student/auth/me`, method: 'get' },
+				},
+			},
 		},
 	},
 

@@ -36,7 +36,7 @@
 												id="email"
 												placeholder="Enter Email address"
 												class="form-control"
-												v-model="form.email"
+												v-model="form.student_email"
 												autocomplete="on"
 												required
 											/>
@@ -50,7 +50,7 @@
 												id="password"
 												placeholder="Password"
 												class="form-control"
-												v-model="form.password"
+												v-model="form.student_password"
 												autocomplete="nope"
 												required
 											/>
@@ -159,8 +159,8 @@ export default Vue.extend({
 	data: () => ({
 		is_animation_loading: false,
 		form: {
-			email: '',
-			password: '',
+			student_email: '',
+			student_password: '',
 			// device: '',
 		},
 		validation_errors: [],
@@ -170,11 +170,11 @@ export default Vue.extend({
 		async postStudentLogin() {
 			this.is_animation_loading = true;
 			try {
-				const res = await this.$auth.loginWith('institute', {
+				const res = await this.$auth.loginWith('student', {
 					data: this.form,
 				});
 
-				this.$router.push('/institute/dashboard');
+				this.$router.push('/student/dashboard');
 			} catch (err: AxiosError | any) {
 				if (err.response.data.errors)
 					this.validation_errors = err.response.data.errors;

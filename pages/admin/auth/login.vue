@@ -175,6 +175,7 @@ export default Vue.extend({
 				});
 
 				this.$router.push('/admin/dashboard');
+				
 			} catch (err: AxiosError | any) {
 				if (err.response.data.errors)
 					this.validation_errors = err.response.data.errors;

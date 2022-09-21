@@ -14,45 +14,44 @@
 						>
 							<thead>
 								<tr>
-									<th>#</th>
-									<th>full_name</th>
-									<th>email</th>
-									<th>created_at</th>
-									<th>show</th>
-									<th>action</th>
+									<th>total number of class</th>
+
+									<th>total number of section</th>
+
+									<th>total number of Student</th>
+									<th>total number of Staff</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr v-for="institute in institutes" :key="institute.id">
+								<tr>
+									<td>{{ category_count }}</td>
+
+									<td>{{ subcategory_count }}</td>
+									<td>{{ studentcount }}</td>
+									<td>{{ staffcount }}</td>
+								</tr>
+								<!-- <tr v-for="institute in institutes" :key="institute.id">
 									<td>{{ institute.id }}</td>
-									<td>{{ institute.full_name }}</td>
+									<td>
+										{{ institute.grade_category_information.category_name }}
+									</td>
+									<td>
+										{{
+											institute.grade_sub_category_information.subcategory_name
+										}}
+									</td>
 									<td>{{ institute.email }}</td>
+									<td>
+										{{ institute.student_information.student_name }}
+									</td>
+									<td>
+										<div v-for="staff in institute.staff_information">
+											staff Name:{{ staff.staff_name }}
+										</div>
+									</td>
 
 									<td>{{ $formatDate(institute.created_at) }}</td>
-									<td>
-										<nuxt-link
-											:to="`/admin/institute/${institute.id}`"
-											class="btn btn-warning btn-sm"
-										>
-											view
-										</nuxt-link>
-									</td>
-									<td>
-										<nuxt-link
-											:to="`/admin/institute/${institute.id}/edit`"
-											class="btn btn-warning btn-sm"
-										>
-											edit
-										</nuxt-link>
-										<button
-											type="submit"
-											class="btn btn-danger btn-sm"
-											@click.prevent="deleteDestroy(institute.id, index)"
-										>
-											Delete
-										</button>
-									</td>
-								</tr>
+								</tr> -->
 							</tbody>
 						</table>
 					</div>
@@ -90,16 +89,23 @@ export default Vue.extend({
 		per_page: 15,
 		validation_errors: [],
 		institutes: [],
+		category_count: '',
+		subcategory_count: '',
+		studentcount: '',
+		staffcount: '',
 	}),
 	methods: {
-		async getIndex() {
+		async getInstituteIndex() {
 			try {
 				const res = await this.$axios.get(
-					`/admin/institute/index/?page=${this.page}`
+					`/admin/institute-information/index/${this.$route.params.id}`
 				);
-				this.institutes = res.data.institute.data ?? [];
-				this.total = res.data.institute.total ?? 1;
-				this.per_page = res.data.institute.per_page ?? 15;
+
+				this.institutes = res.data.institute ?? [];
+				this.category_count = res.data.category_count ?? '';
+				this.subcategory_count = res.data.subcategory_count ?? '';
+				this.studentcount = res.data.studentcount ?? '';
+				this.staffcount = res.data.staffcount ?? '';
 			} catch (err: any) {
 				console.log(err);
 			}
@@ -143,11 +149,11 @@ export default Vue.extend({
 	},
 	watch: {
 		page() {
-			this.getIndex();
+			this.getInstituteIndex();
 		},
 	},
 	created() {
-		this.getIndex();
+		this.getInstituteIndex();
 	},
 });
 </script>

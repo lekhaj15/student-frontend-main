@@ -7,7 +7,7 @@
 						<div class="d-none d-md-block">
 							<div class="mb-5">
 								<!-- <h1 class="display-4 font-italic font-weight-bold text-primary">
-									Welcome to ConTrackt
+									Welcome to Co
 								</h1> -->
 								<h1 class="display-5 font-weight-bold text-primary">Hello!</h1>
 								<!-- <h4>ConTrackt helps you to find Latest Government Tenders</h4> -->
@@ -36,7 +36,7 @@
 												id="email"
 												placeholder="Enter Email address"
 												class="form-control"
-												v-model="form.email"
+												v-model="form.staff_email"
 												autocomplete="on"
 												required
 											/>
@@ -50,7 +50,7 @@
 												id="password"
 												placeholder="Password"
 												class="form-control"
-												v-model="form.password"
+												v-model="form.staff_password"
 												autocomplete="nope"
 												required
 											/>
@@ -64,9 +64,7 @@
 										>
 											<ValidationErrors :errors="'Please verify your email'" />
 
-											<NuxtLink
-												to="/institute/auth/resend-email-verification-link"
-											>
+											<NuxtLink to="/staff/auth/resend-email-verification-link">
 												Resend Email Verification Link ?
 											</NuxtLink>
 										</div>
@@ -96,16 +94,16 @@
 											Log In
 										</button>
 
-										<div class="form-group col-12 text-center mt-5 pt-5">
+										<!--<div class="form-group col-12 text-center mt-5 pt-5">
 											<span class="mr-1">Not a member?</span>
 
 											<NuxtLink
-												to="/institute/auth/register"
+												to="/staff/auth/register"
 												class="font-weight-bold"
 											>
 												Register Now
 											</NuxtLink>
-										</div>
+										</div>-->
 									</div>
 
 									<!-- <div class="form-group col-12">
@@ -150,7 +148,7 @@ import ValidationErrors from '@/components/ValidationErrors.vue';
 export default Vue.extend({
 	middleware: 'guest',
 	head: {
-		title: 'staff Login With Email',
+		title: ' staff Login With Email',
 		bodyAttrs: {
 			id: 'staff-login-with-email',
 		},
@@ -159,8 +157,8 @@ export default Vue.extend({
 	data: () => ({
 		is_animation_loading: false,
 		form: {
-			email: '',
-			password: '',
+			staff_email: '',
+			staff_password: '',
 			// device: '',
 		},
 		validation_errors: [],

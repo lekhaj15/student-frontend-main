@@ -97,8 +97,12 @@
 								/>
 							</div>
 						</div>
+
 						<div class="form-group col-md-6">
-							<label for="grade_category">Class:</label>
+							<label for="grade_category" class="font-weight-bold">
+								Class
+								<span class="text-danger">*</span>
+							</label>
 							<v-select
 								id="grade_category"
 								label="category_name"
@@ -123,7 +127,10 @@
 						</div>
 
 						<div class="form-group col-md-6">
-							<label for="grade_category">Section:</label>
+							<label for="grade_category" class="font-weight-bold">
+								Section
+								<span class="text-danger">*</span>
+							</label>
 							<v-select
 								id="grade_category"
 								label="category_name"
@@ -179,7 +186,8 @@ export default Vue.extend({
 			staff_name: '',
 			staff_email: '',
 			staff_phone: '',
-			staff_status: '',
+			staff_dob: '',
+
 			category_id: '',
 			subcategory_id: '',
 		},

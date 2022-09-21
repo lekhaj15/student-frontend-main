@@ -10,7 +10,7 @@
 		</nuxt-link>
 
 		<VSimplebar data-simplebar-auto-hide="false" class="sidebar">
-			<div class="user-panel mt-3 pb-3 mb-3 d-flex">
+			<div class="user-panel mt-3 pb-3 mb-3 d-flex" v-if="isAdminOnly">
 				<div class="image">
 					<b-img-lazy
 						src="/icon.png"
@@ -35,6 +35,81 @@
 						<b-dropdown-item to="/admin/institute">index</b-dropdown-item>
 						<b-dropdown-item to="/admin/institute/add">add</b-dropdown-item>
 					</b-nav-item-dropdown>
+
+					<!---<b-nav-item-dropdown
+						text="Grade category"
+						toggle-class="nav-link-custom"
+					>
+						<b-dropdown-item to="/institute/grade-category">
+							index
+						</b-dropdown-item>
+						<b-dropdown-item to="/institute/grade-category/add">
+							add
+						</b-dropdown-item>
+					</b-nav-item-dropdown>
+
+					<b-nav-item-dropdown
+						text="Grade Subcategory"
+						toggle-class="nav-link-custom"
+					>
+						<b-dropdown-item to="/institute/grade-subcategory">
+							index
+						</b-dropdown-item>
+						<b-dropdown-item to="/institute/grade-subcategory/add">
+							add
+						</b-dropdown-item>
+					</b-nav-item-dropdown>
+					<b-nav-item-dropdown text="Student" toggle-class="nav-link-custom">
+						<b-dropdown-item to="/institute/student">index</b-dropdown-item>
+						<b-dropdown-item to="/institute/student/add">add</b-dropdown-item>
+					</b-nav-item-dropdown>
+					<b-nav-item-dropdown text="Staff" toggle-class="nav-link-custom">
+						<b-dropdown-item to="/institute/staff">index</b-dropdown-item>
+						<b-dropdown-item to="/institute/staff/add">add</b-dropdown-item>
+					</b-nav-item-dropdown>-->
+
+					<b-nav-item-dropdown
+						text="admin-staff"
+						toggle-class="nav-link-custom"
+					>
+						<b-dropdown-item to="/admin/staff">index</b-dropdown-item>
+					</b-nav-item-dropdown>
+					<b-nav-item-dropdown
+						text="admin-student"
+						toggle-class="nav-link-custom"
+					>
+						<b-dropdown-item to="/admin/student">index</b-dropdown-item>
+					</b-nav-item-dropdown>
+					<b-nav-item-dropdown
+						text="admin-grade"
+						toggle-class="nav-link-custom"
+					>
+						<b-dropdown-item to="/admin/grade">index</b-dropdown-item>
+					</b-nav-item-dropdown>
+
+					<b-nav-item to="/contact-us">contact us</b-nav-item>
+
+					<b-nav-item @click="logout">logout</b-nav-item>
+				</b-nav>
+			</nav>
+
+			<div class="user-panel mt-3 pb-3 mb-3 d-flex" v-if="isInstituteOnly">
+				<div class="image">
+					<b-img-lazy
+						src="/icon.png"
+						class="shadow-sm"
+						alt="User Image"
+					></b-img-lazy>
+				</div>
+				<div class="info">
+					<nuxt-link to="/" class="d-block text-decoration-none">
+						Institute
+					</nuxt-link>
+				</div>
+			</div>
+			<nav class="mt-2" v-if="isInstituteOnly">
+				<b-nav class="text-capitalize" vertical pills>
+					<b-nav-item to="/institute/dashboard">dashboard</b-nav-item>
 
 					<b-nav-item-dropdown
 						text="Grade category"
@@ -72,47 +147,44 @@
 
 					<b-nav-item @click="logout">logout</b-nav-item>
 				</b-nav>
-				<nav class="mt-2" v-if="isInstituteOnly">
-					<b-nav class="text-capitalize" vertical pills>
-						<b-nav-item to="/institute/dashboard">dashboard</b-nav-item>
-
-						<b-nav-item-dropdown
-							text="Grade category"
-							toggle-class="nav-link-custom"
-						>
-							<b-dropdown-item to="/institute/grade-category">
-								index
-							</b-dropdown-item>
-							<b-dropdown-item to="/institute/grade-category/add">
-								add
-							</b-dropdown-item>
-						</b-nav-item-dropdown>
-
-						<b-nav-item-dropdown
-							text="Grade Subcategory"
-							toggle-class="nav-link-custom"
-						>
-							<b-dropdown-item to="/institute/grade-subcategory">
-								index
-							</b-dropdown-item>
-							<b-dropdown-item to="/institute/grade-subcategory/add">
-								add
-							</b-dropdown-item>
-						</b-nav-item-dropdown>
-						<b-nav-item-dropdown text="Student" toggle-class="nav-link-custom">
-							<b-dropdown-item to="/institute/student">index</b-dropdown-item>
-							<b-dropdown-item to="/institute/student/add">add</b-dropdown-item>
-						</b-nav-item-dropdown>
-						<b-nav-item-dropdown text="Staff" toggle-class="nav-link-custom">
-							<b-dropdown-item to="/institute/staff">index</b-dropdown-item>
-							<b-dropdown-item to="/institute/staff/add">add</b-dropdown-item>
-						</b-nav-item-dropdown>
-
-						<b-nav-item to="/contact-us">contact us</b-nav-item>
-
-						<b-nav-item @click="logout">logout</b-nav-item>
-					</b-nav>
-				</nav>
+			</nav>
+			<div class="user-panel mt-3 pb-3 mb-3 d-flex" v-if="isStudentOnly">
+				<div class="image">
+					<b-img-lazy
+						src="/icon.png"
+						class="shadow-sm"
+						alt="User Image"
+					></b-img-lazy>
+				</div>
+				<div class="info">
+					<nuxt-link to="/" class="d-block text-decoration-none">
+						Student
+					</nuxt-link>
+				</div>
+			</div>
+			<nav class="mt-2" v-if="isStudentOnly">
+				<b-nav class="text-capitalize" vertical pills>
+					<b-nav-item to="/institute/dashboard">dashboard</b-nav-item>
+				</b-nav>
+			</nav>
+			<div class="user-panel mt-3 pb-3 mb-3 d-flex" v-if="isStaffOnly">
+				<div class="image">
+					<b-img-lazy
+						src="/icon.png"
+						class="shadow-sm"
+						alt="User Image"
+					></b-img-lazy>
+				</div>
+				<div class="info">
+					<nuxt-link to="/" class="d-block text-decoration-none">
+						Staff
+					</nuxt-link>
+				</div>
+			</div>
+			<nav class="mt-2" v-if="isStaffOnly">
+				<b-nav class="text-capitalize" vertical pills>
+					<b-nav-item to="/institute/dashboard">dashboard</b-nav-item>
+				</b-nav>
 			</nav>
 		</VSimplebar>
 	</aside>
@@ -147,6 +219,7 @@ export default Vue.extend({
 		async logout() {
 			try {
 				await this.$auth.logout();
+				this.$router.push('/admin/auth/login');
 			} catch (err: any) {
 				console.log(err);
 			}

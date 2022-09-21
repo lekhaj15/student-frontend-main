@@ -116,7 +116,7 @@ export default Vue.extend({
 		async getStudentInformationIndex() {
 			try {
 				const res = await this.$axios.get(
-					`/institute/staff/index/?page=${this.page}`
+					`/institute/student/index/?page=${this.page}`
 				);
 				this.student_information = res.data.student_information.data ?? [];
 				this.total = res.data.student_information.total ?? 1;
