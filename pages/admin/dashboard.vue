@@ -65,7 +65,7 @@
 
 							<div class="col-md-4 col-xl-3">
 								<div class="card bg-c-pink order-card">
-									<nuxt-link :to="`/admin/grade`">
+									<nuxt-link :to="`/admin/category`">
 										<div class="card-block">
 											<h6 class="m-b-20">Total class</h6>
 											<h2 class="text-right">
@@ -123,7 +123,9 @@ export default Vue.extend({
 			}
 		},
 	},
-	mounted() {
+	mounted() {},
+	created() {
+		this.getAdminDashboardIndex();
 		if (localStorage.getItem('reloaded')) {
 			// The page was just reloaded. Clear the value from local storage
 			// so that it will reload the next time this page is visited.
@@ -133,9 +135,6 @@ export default Vue.extend({
 			localStorage.setItem('reloaded', '1');
 			location.reload();
 		}
-	},
-	created() {
-		this.getAdminDashboardIndex();
 	},
 });
 </script>
