@@ -149,6 +149,7 @@ import ValidationErrors from '@/components/ValidationErrors.vue';
 
 export default Vue.extend({
 	middleware: 'guest',
+	layout: 'empty',
 	head: {
 		title: 'Admin Login With Email',
 		bodyAttrs: {
@@ -175,7 +176,6 @@ export default Vue.extend({
 				});
 
 				this.$router.push('/admin/dashboard');
-				
 			} catch (err: AxiosError | any) {
 				if (err.response.data.errors)
 					this.validation_errors = err.response.data.errors;

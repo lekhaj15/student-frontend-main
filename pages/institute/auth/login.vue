@@ -151,6 +151,7 @@ import ValidationErrors from '@/components/ValidationErrors.vue';
 
 export default Vue.extend({
 	middleware: 'guest',
+	layout: 'empty',
 	head: {
 		title: 'institute Login With Email',
 		bodyAttrs: {
