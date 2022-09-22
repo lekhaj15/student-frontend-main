@@ -111,10 +111,7 @@
 				<b-nav class="text-capitalize" vertical pills>
 					<b-nav-item to="/institute/dashboard">dashboard</b-nav-item>
 
-					<b-nav-item-dropdown
-						text="Grade category"
-						toggle-class="nav-link-custom"
-					>
+					<b-nav-item-dropdown text="Class" toggle-class="nav-link-custom">
 						<b-dropdown-item to="/institute/grade-category">
 							index
 						</b-dropdown-item>
@@ -123,10 +120,7 @@
 						</b-dropdown-item>
 					</b-nav-item-dropdown>
 
-					<b-nav-item-dropdown
-						text="Grade Subcategory"
-						toggle-class="nav-link-custom"
-					>
+					<b-nav-item-dropdown text="Section" toggle-class="nav-link-custom">
 						<b-dropdown-item to="/institute/grade-subcategory">
 							index
 						</b-dropdown-item>
