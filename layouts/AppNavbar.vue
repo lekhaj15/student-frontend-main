@@ -101,10 +101,9 @@
 						alt="User Image"
 					></b-img-lazy>
 				</div>
+				institue
 				<div class="info">
-					<nuxt-link to="/" class="d-block text-decoration-none">
-						Institute
-					</nuxt-link>
+					<nuxt-link to="/" class="d-block text-decoration-none"></nuxt-link>
 				</div>
 			</div>
 			<nav class="mt-2" v-if="isInstituteOnly">
@@ -137,7 +136,15 @@
 						<b-dropdown-item to="/institute/staff/add">add</b-dropdown-item>
 					</b-nav-item-dropdown>
 
-					<b-nav-item to="/contact-us">contact us</b-nav-item>
+					<b-nav-item-dropdown text="topic" toggle-class="nav-link-custom">
+						<b-dropdown-item to="/institute/topic">index</b-dropdown-item>
+						<b-dropdown-item to="/institute/topic/add">add</b-dropdown-item>
+					</b-nav-item-dropdown>
+
+					<b-nav-item-dropdown text="questions" toggle-class="nav-link-custom">
+						<b-dropdown-item to="/institute/questions">index</b-dropdown-item>
+						<b-dropdown-item to="/institute/questions/add">add</b-dropdown-item>
+					</b-nav-item-dropdown>
 
 					<b-nav-item @click="logout">logout</b-nav-item>
 				</b-nav>
