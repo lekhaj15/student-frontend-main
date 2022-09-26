@@ -1,311 +1,272 @@
 <template>
 	<div>
-		<div class="container">
-			<div class="bs-calltoaction bs-calltoaction-info">
-				<div class="row">
-					<div class="col-md-9 cta-contents">
-						<h1 class="cta-title">Admin</h1>
-						<div class="cta-desc">
-							<p>Describe the action here.</p>
-							<p>Describe the action here.</p>
-							<p>Describe the action here.</p>
-						</div>
-					</div>
-					<div class="col-md-3 cta-button">
-						<NuxtLink
-							to="/admin/auth/login"
-							class="btn btn-lg btn-block btn-info"
-						>
-							Go for It!
-						</NuxtLink>
-					</div>
-				</div>
-			</div>
-
-			<div class="bs-calltoaction bs-calltoaction-success">
-				<div class="row">
-					<div class="col-md-9 cta-contents">
-						<h1 class="cta-title">Institute</h1>
-						<div class="cta-desc">
-							<p>Describe the action here.</p>
-							<p>Describe the action here.</p>
-							<p>Describe the action here.</p>
-						</div>
-					</div>
-					<div class="col-md-3 cta-button">
-						<a href="#" class="btn btn-lg btn-block btn-success">Go for It!</a>
-					</div>
-				</div>
-			</div>
-
-			<div class="bs-calltoaction bs-calltoaction-warning">
-				<div class="row">
-					<div class="col-md-9 cta-contents">
-						<h1 class="cta-title">Staff</h1>
-						<div class="cta-desc">
-							<p>Describe the action here.</p>
-							<p>Describe the action here.</p>
-							<p>Describe the action here.</p>
-						</div>
-					</div>
-					<div class="col-md-3 cta-button">
-						<a href="#" class="btn btn-lg btn-block btn-warning">Go for It!</a>
-					</div>
-				</div>
-			</div>
-
-			<div class="bs-calltoaction bs-calltoaction-danger">
-				<div class="row">
-					<div class="col-md-9 cta-contents">
-						<h1 class="cta-title">Student</h1>
-						<div class="cta-desc">
-							<p>Describe the action here.</p>
-							<p>Describe the action here.</p>
-							<p>Describe the action here.</p>
-						</div>
-					</div>
-					<div class="col-md-3 cta-button">
-						<a href="#" class="btn btn-lg btn-block btn-danger">Go for It!</a>
-					</div>
-				</div>
-			</div>
-
-			<div class="container register">
-				<div class="row">
-					<div class="col-md-12">
-						<ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
-							<li class="nav-item">
-								<a
-									class="nav-link active"
-									id="home-tab"
-									data-toggle="tab"
-									href="#home"
-									role="tab"
-									aria-controls="home"
-									aria-selected="true"
-								>
-									Admin Login
+		<!-- Hero Section-->
+		<section
+			class="hero bg-top py-5"
+			id="hero"
+			style="
+				background: url('/banner-4.png') no-repeat;
+				background-size: 100% 80%;
+			"
+		>
+			<div class="container py-5">
+				<div class="row py-5">
+					<div class="col-lg-5 py-5">
+						<h1>Welcome to Feedback Management System.</h1>
+						<p class="my-4 text-muted">
+							All your needs for Student Feedback Management
+						</p>
+						<ul class="list-inline mb-0">
+							<li class="list-inline-item mb-2 mb-lg-0">
+								<a class="btn btn-primary btn-lg px-4" href="#!">
+									<i class="fab fa-google-play me-3"></i>
+									Google Play
 								</a>
 							</li>
-							<li class="nav-item">
-								<a
-									class="nav-link"
-									id="profile-tab"
-									data-toggle="tab"
-									href="#profile"
-									role="tab"
-									aria-controls="profile"
-									aria-selected="false"
-								>
-									Institute login
+							<li class="list-inline-item">
+								<a class="btn btn-primary btn-lg px-4" href="#!">
+									<i class="fab fa-app-store me-3"></i>
+									App Store
 								</a>
 							</li>
 						</ul>
-						<div class="tab-content" id="myTabContent">
+					</div>
+					<div class="col-lg-6 ml-auto">
+						<div class="device-wrapper mx-auto">
 							<div
-								class="tab-pane fade show active text-align form-new"
-								id="home"
-								role="tabpanel"
-								aria-labelledby="home-tab"
+								class="device shadow"
+								data-device="iPhoneX"
+								data-orientation="portrait"
+								data-color="black"
 							>
-								<h3 class="register-heading">Login Form 1</h3>
-								<div class="row register-form">
-									<div class="col-md-12">
-										<form method="post">
-											<div class="form-group">
-												<input
-													type="text"
-													name="LGform1_user"
-													class="form-control"
-													placeholder="Your Email *"
-													value=""
-													required=""
-												/>
-											</div>
-											<div class="form-group">
-												<input
-													type="password"
-													name="LGform1_pwd"
-													class="form-control"
-													placeholder="Your Password *"
-													value=""
-													required=""
-												/>
-											</div>
-											<div class="form-group">
-												<input
-													type="submit"
-													name="LGform1"
-													class="btnContactSubmit"
-													value="Login"
-												/>
-												<a
-													href="ForgetPassword.php"
-													class="btnForgetPwd"
-													value="Login"
-												>
-													Forget Password?
-												</a>
-											</div>
-										</form>
-									</div>
-								</div>
-							</div>
-							<div
-								class="tab-pane fade show text-align form-new"
-								id="profile"
-								role="tabpanel"
-								aria-labelledby="profile-tab"
-							>
-								<h3 class="register-heading">Login Form 2</h3>
-								<div class="row register-form">
-									<div class="col-md-12">
-										<form method="post">
-											<div class="form-group">
-												<input
-													type="text"
-													name="LGform2_user"
-													class="form-control"
-													placeholder="Your Email *"
-													value=""
-													required=""
-												/>
-											</div>
-											<div class="form-group">
-												<input
-													type="password"
-													name="LGform2_pwd"
-													class="form-control"
-													placeholder="Your Password *"
-													value=""
-													required=""
-												/>
-											</div>
-											<div class="form-group">
-												<input
-													type="submit"
-													name="LGform2"
-													class="btnContactSubmit"
-													value="Login"
-												/>
-												<a
-													href="ForgetPassword.php"
-													class="btnForgetPwd"
-													value="Login"
-												>
-													Forget Password?
-												</a>
-											</div>
-										</form>
-									</div>
-								</div>
+								<!-- <div class="screen"><img class="img-fluid" src="img/mobile.png" alt=""></div> -->
 							</div>
 						</div>
 					</div>
 				</div>
+			</div>
+		</section>
+
+		<div class="py-3">
+			<div class="container">
+				<section class="row">
+					<div class="col-12 col-md-6 col-xl-3 mb-3">
+						<nuxt-link :to="`/admin/auth/login`">
+							<div class="card text-white bg-info">
+								<div class="card-statistic-3 p-4">
+									<div class="card-icon card-icon-large">
+										<!-- <div class="fas fa-shopping-cart"></div> -->
+									</div>
+									<div class="mb-4">
+										<h5 class="card-title mb-0">Admin</h5>
+									</div>
+									<!--<div class="row align-items-center mb-2 d-flex">
+										<div class="col-8">
+											<h2 class="d-flex align-items-center mb-0">3,243</h2>
+										</div>
+										<div class="col-4 text-right">
+											<span>
+												12.5%
+												<i class="fa fa-arrow-up"></i>
+											</span>
+										</div>
+									</div>-->
+									<div
+										class="progress mt-1"
+										data-height="8"
+										style="height: 8px"
+									>
+										<!--</class><NuxtLink to="/admin/auth/login"></NuxtLink>-->
+									</div>
+								</div>
+							</div>
+						</nuxt-link>
+					</div>
+
+					<div class="col-12 col-md-6 col-xl-3 mb-3">
+						<nuxt-link :to="`/institute/auth/login`">
+							<div class="card text-white bg-warning">
+								<div class="card-statistic-3 p-4">
+									<div class="card-icon card-icon-large">
+										<!-- <div class="fas fa-shopping-cart"></div> -->
+									</div>
+									<div class="mb-4">
+										<h5 class="card-title mb-0">Institute</h5>
+									</div>
+									<!--<div class="row align-items-center mb-2 d-flex">
+										<div class="col-8">
+											<h2 class="d-flex align-items-center mb-0">3,243</h2>
+										</div>
+										<div class="col-4 text-right">
+											<span>
+												12.5%
+												<i class="fa fa-arrow-up"></i>
+											</span>
+										</div>
+									</div>-->
+									<div
+										class="progress mt-1"
+										data-height="8"
+										style="height: 8px"
+									>
+										<!--</class><NuxtLink to="/admin/auth/login"></NuxtLink>-->
+									</div>
+								</div>
+							</div>
+						</nuxt-link>
+					</div>
+
+					<div class="col-12 col-md-6 col-xl-3 mb-3">
+						<nuxt-link :to="`/staff/auth/login`">
+							<div class="card text-white bg-primary">
+								<div class="card-statistic-3 p-4">
+									<div class="card-icon card-icon-large">
+										<!-- <div class="fas fa-shopping-cart"></div> -->
+									</div>
+									<div class="mb-4">
+										<h5 class="card-title mb-0">Staff</h5>
+									</div>
+									<!--<div class="row align-items-center mb-2 d-flex">
+										<div class="col-8">
+											<h2 class="d-flex align-items-center mb-0">3,243</h2>
+										</div>
+										<div class="col-4 text-right">
+											<span>
+												12.5%
+												<i class="fa fa-arrow-up"></i>
+											</span>
+										</div>
+									</div>-->
+									<div
+										class="progress mt-1"
+										data-height="8"
+										style="height: 8px"
+									>
+										<!--</class><NuxtLink to="/admin/auth/login"></NuxtLink>-->
+									</div>
+								</div>
+							</div>
+						</nuxt-link>
+					</div>
+
+					<div class="col-12 col-md-6 col-xl-3 mb-3">
+						<nuxt-link :to="`/student/auth/login`">
+							<div class="card text-white bg-success">
+								<div class="card-statistic-3 p-4">
+									<div class="card-icon card-icon-large">
+										<!-- <div class="fas fa-shopping-cart"></div> -->
+									</div>
+									<div class="mb-4">
+										<h5 class="card-title mb-0">Student</h5>
+									</div>
+									<!--<div class="row align-items-center mb-2 d-flex">
+										<div class="col-8">
+											<h2 class="d-flex align-items-center mb-0">3,243</h2>
+										</div>
+										<div class="col-4 text-right">
+											<span>
+												12.5%
+												<i class="fa fa-arrow-up"></i>
+											</span>
+										</div>
+									</div>-->
+									<div
+										class="progress mt-1"
+										data-height="8"
+										style="height: 8px"
+									>
+										<!--</class><NuxtLink to="/admin/auth/login"></NuxtLink>-->
+									</div>
+								</div>
+							</div>
+						</nuxt-link>
+					</div>
+				</section>
 			</div>
 		</div>
 	</div>
 </template>
 
 <script>
-export default {};
+import Vue from 'vue';
+import { AxiosError } from 'axios';
+import ValidationErrors from '@/components/ValidationErrors.vue';
+export default {
+	middleware: 'guest',
+	layout: 'empty',
+	// setup() {
+	// 	return {};
+	// },
+};
 </script>
 
 <style lang="css" scoped>
-.bs-calltoaction {
+.card {
+	background-color: #fff;
+	border-radius: 10px;
+	border: none;
 	position: relative;
-	width: auto;
-	padding: 15px 25px;
-	border: 1px solid black;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	border-radius: 5px;
+	margin-bottom: 50px;
+	box-shadow: 0 0.46875rem 2.1875rem rgba(90, 97, 105, 0.1),
+		0 0.9375rem 1.40625rem rgba(90, 97, 105, 0.1),
+		0 0.25rem 0.53125rem rgba(90, 97, 105, 0.12),
+		0 0.125rem 0.1875rem rgba(90, 97, 105, 0.1);
 }
-
-.bs-calltoaction > .row {
-	display: table;
-	width: calc(100% + 30px);
-}
-
-.bs-calltoaction > .row > [class^='col-'],
-.bs-calltoaction > .row > [class*=' col-'] {
-	float: none;
-	display: table-cell;
-	vertical-align: middle;
-}
-
-.cta-contents {
-	padding-top: 10px;
-	padding-bottom: 10px;
-}
-
-.cta-title {
-	margin: 0 auto 15px;
-	padding: 0;
-}
-
-.cta-desc {
-	padding: 0;
-}
-
-.cta-desc p:last-child {
-	margin-bottom: 0;
-}
-
-.cta-button {
-	padding-top: 10px;
-	padding-bottom: 10px;
-}
-
-@media (max-width: 991px) {
-	.bs-calltoaction > .row {
-		display: block;
-		width: auto;
-	}
-
-	.bs-calltoaction > .row > [class^='col-'],
-	.bs-calltoaction > .row > [class*=' col-'] {
-		float: none;
-		display: block;
-		vertical-align: middle;
-		position: relative;
-	}
-
-	.cta-contents {
-		text-align: center;
-	}
-}
-
-.bs-calltoaction.bs-calltoaction-info {
+.l-bg-cherry {
+	background: linear-gradient(to right, #493240, #f09) !important;
 	color: #fff;
-	background-color: #5bc0de;
-	border-color: #46b8da;
 }
 
-.bs-calltoaction.bs-calltoaction-success {
+.l-bg-blue-dark {
+	background: linear-gradient(to right, #373b44, #4286f4) !important;
 	color: #fff;
-	background-color: #5cb85c;
-	border-color: #4cae4c;
 }
 
-.bs-calltoaction.bs-calltoaction-warning {
+.l-bg-green-dark {
+	background: linear-gradient(to right, #0a504a, #38ef7d) !important;
 	color: #fff;
-	background-color: #f0ad4e;
-	border-color: #eea236;
 }
 
-.bs-calltoaction.bs-calltoaction-danger {
+.l-bg-orange-dark {
+	background: linear-gradient(to right, #a86008, #ffba56) !important;
 	color: #fff;
-	background-color: #d9534f;
-	border-color: #d43f3a;
 }
 
-.bs-calltoaction.bs-calltoaction-primary .cta-button .btn,
-.bs-calltoaction.bs-calltoaction-info .cta-button .btn,
-.bs-calltoaction.bs-calltoaction-success .cta-button .btn,
-.bs-calltoaction.bs-calltoaction-warning .cta-button .btn,
-.bs-calltoaction.bs-calltoaction-danger .cta-button .btn {
-	border-color: #fff;
+.card .card-statistic-3 .card-icon-large .fas,
+.card .card-statistic-3 .card-icon-large .far,
+.card .card-statistic-3 .card-icon-large .fab,
+.card .card-statistic-3 .card-icon-large .fal {
+	font-size: 110px;
+}
+
+.card .card-statistic-3 .card-icon {
+	text-align: center;
+	line-height: 50px;
+	margin-left: 15px;
+	color: #000;
+	position: absolute;
+	right: -5px;
+	top: 20px;
+	opacity: 0.1;
+}
+
+.l-bg-cyan {
+	background: linear-gradient(135deg, #289cf5, #84c0ec) !important;
+	color: #fff;
+}
+
+.l-bg-green {
+	background: linear-gradient(135deg, #23bdb8 0%, #43e794 100%) !important;
+	color: #fff;
+}
+
+.l-bg-orange {
+	background: linear-gradient(to right, #f9900e, #ffba56) !important;
+	color: #fff;
+}
+
+.l-bg-cyan {
+	background: linear-gradient(135deg, #289cf5, #84c0ec) !important;
+	color: #fff;
 }
 </style>

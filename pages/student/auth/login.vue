@@ -9,7 +9,9 @@
 								<!-- <h1 class="display-4 font-italic font-weight-bold text-primary">
 									Welcome to ConTrackt
 								</h1> -->
-								<h1 class="display-5 font-weight-bold text-primary">Hello!</h1>
+								<h1 class="display-5 font-weight-bold text-primary">
+									Hello! Student
+								</h1>
 								<!-- <h4>ConTrackt helps you to find Latest Government Tenders</h4> -->
 							</div>
 						</div>
@@ -73,6 +75,7 @@
 
 										<ValidationErrors :errors="validation_errors" />
 									</div>
+									<NuxtLink to="/student/auth/login"></NuxtLink>
 
 									<div class="col-12 mb-4">
 										<button
@@ -95,17 +98,6 @@
 										>
 											Log In
 										</button>
-
-										<div class="form-group col-12 text-center mt-5 pt-5">
-											<span class="mr-1">Not a member?</span>
-
-											<NuxtLink
-												to="/institute/auth/register"
-												class="font-weight-bold"
-											>
-												Register Now
-											</NuxtLink>
-										</div>
 									</div>
 
 									<!-- <div class="form-group col-12">
