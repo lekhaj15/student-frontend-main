@@ -6,9 +6,13 @@
 					<div class="col-12 col-md-6 col-xl-7 px-4">
 						<div class="d-none d-md-block">
 							<div class="mb-5">
+								<!-- <h1 class="display-4 font-italic font-weight-bold text-primary">
+									Welcome to ConTrackt
+								</h1> -->
 								<h1 class="display-5 font-weight-bold text-primary">
 									Hello! institute
 								</h1>
+								<!-- <h4>ConTrackt helps you to find Latest Government Tenders</h4> -->
 							</div>
 						</div>
 						<div class="d-block d-md-none">
@@ -94,7 +98,7 @@
 											Log In
 										</button>
 
-										<div class="form-group col-12 text-center mt-5 pt-5">
+										<!--<div class="form-group col-12 text-center mt-5 pt-5">
 											<span class="mr-1">Not a member?</span>
 
 											<NuxtLink
@@ -103,7 +107,7 @@
 											>
 												Register Now
 											</NuxtLink>
-										</div>
+										</div>-->
 									</div>
 
 									<!-- <div class="form-group col-12">

@@ -9,7 +9,9 @@
 								<!-- <h1 class="display-4 font-italic font-weight-bold text-primary">
 									Welcome to Co
 								</h1> -->
-								<h1 class="display-5 font-weight-bold text-primary">Hello!</h1>
+								<h1 class="display-5 font-weight-bold text-primary">
+									Hello! Staff
+								</h1>
 								<!-- <h4>ConTrackt helps you to find Latest Government Tenders</h4> -->
 							</div>
 						</div>
@@ -70,6 +72,7 @@
 										</div>
 
 										<ValidationErrors :errors="validation_errors" />
+										<NuxtLink to="/staff/auth/login"></NuxtLink>
 									</div>
 
 									<div class="col-12 mb-4">

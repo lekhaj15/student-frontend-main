@@ -65,9 +65,7 @@
 										>
 											<ValidationErrors :errors="'Please verify your email'" />
 
-											<NuxtLink to="/admin/auth/resend-email-verification-link">
-												Resend Email Verification Link ?
-											</NuxtLink>
+											<NuxtLink to="/admin/auth/login"></NuxtLink>
 										</div>
 
 										<ValidationErrors :errors="validation_errors" />
@@ -101,35 +99,9 @@
 											class="d-flex align-items-center justify-content-center font-size-sm text-muted text-center"
 										>
 											<div class="w-100 border-top"></div>
-											<div class="w-100 text-nowrap mx-2">Or continue with</div>
+
 											<div class="w-100 border-top"></div>
 										</div>
-									</div>
-
-									<div class="form-group col-12 text-center">
-										<div class="d-flex justify-content-between">
-											<NuxtLink to="/admin/auth/login" class="btn btn-link">
-												Login with otp
-											</NuxtLink>
-
-											<NuxtLink
-												to="/admin/auth/password/email"
-												class="btn btn-link"
-											>
-												Forgot Password?
-											</NuxtLink>
-										</div>
-									</div>
-
-									<div class="form-group col-12 text-center mt-5 pt-5">
-										<span class="mr-1">Not a member?</span>
-
-										<NuxtLink
-											to="/admin/auth/register"
-											class="font-weight-bold"
-										>
-											Register Now
-										</NuxtLink>
 									</div>
 								</div>
 							</div>
