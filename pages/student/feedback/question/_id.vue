@@ -84,6 +84,7 @@ export default Vue.extend({
 	data: () => ({
 		question: [],
 		form: {
+			topic_id: '',
 			answers: [],
 		},
 		validation_errors: [],
@@ -110,9 +111,10 @@ export default Vue.extend({
 
 		async postFeedbackStore() {
 			try {
+				this.form.topic_id = this.$route.params.id;
 				const res = await this.$axios.post(
 					`/student/feedback/store`,
-					this.form.answers
+					this.form
 				);
 				if (res.status === 201) {
 					await this.$swal({
