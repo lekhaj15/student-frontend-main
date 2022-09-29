@@ -48,7 +48,7 @@
 									<td>{{ $formatDate(question.created_at) }}</td>
 									<td>
 										<nuxt-link
-											:to="`/institute/staff/${question.id}/edit`"
+											:to="`/institute/questions/${question.id}/edit`"
 											class="btn btn-warning btn-sm"
 										>
 											edit

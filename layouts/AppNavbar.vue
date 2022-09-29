@@ -165,7 +165,10 @@
 			</div>
 			<nav class="mt-2" v-if="isStudentOnly">
 				<b-nav class="text-capitalize" vertical pills>
-					<b-nav-item to="/institute/dashboard">dashboard</b-nav-item>
+					<b-nav-item to="/student/dashboard">dashboard</b-nav-item>
+					<b-nav-item to="/student/profile">Profile</b-nav-item>
+					<b-nav-item to="/student/feedback">Feedback</b-nav-item>
+					<b-nav-item @click="logout">logout</b-nav-item>
 				</b-nav>
 			</nav>
 			<div class="user-panel mt-3 pb-3 mb-3 d-flex" v-if="isStaffOnly">
