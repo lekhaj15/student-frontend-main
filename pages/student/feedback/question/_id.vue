@@ -137,12 +137,12 @@ export default Vue.extend({
 </script>
 
 <style lang="css" scoped>
-/* @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 * {
-	margin: 0;
-	padding: 0;
+	margin: 15;
+	padding: 15;
 	box-sizing: border-box;
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Times New Roman', Times, serif;
 }
 p {
 	margin: 0%;
@@ -153,14 +153,14 @@ body {
 	padding: 10px;
 }
 .container {
-	margin: 30px auto;
+	margin: 20px auto;
 	background: white;
-	padding: 20px 15px;
+	padding: 30px 15px;
 }
 label.box {
 	display: flex;
-	margin-top: 10px;
-	padding: 10px 12px;
+	margin-top: 30px;
+	padding: 30px 12px;
 	border-radius: 5px;
 	cursor: pointer;
 	border: 1px solid #ddd;
@@ -206,12 +206,12 @@ input[type='radio'] {
 	display: none;
 }
 .btn.btn-primary {
-	border-radius: 25px;
-	margin-top: 20px;
+	border-radius: 35px;
+	margin-top: 100px;
 }
 @media (max-width: 450px) {
 	.subject {
 		font-size: 12px;
 	}
-} */
+}
 </style>

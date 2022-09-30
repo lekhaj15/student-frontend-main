@@ -15,9 +15,9 @@
 								<div class="card bg-c-gray order-card">
 									<nuxt-link :to="`/student/feedback/question/${tp.id}`">
 										<div class="card-block">
-											<h6 class="m-b-20">{{ tp.topic_name }}</h6>
+											<h4 class="m-b-20">{{ tp.topic_name }}</h4>
 											<h2 class="text-right">
-												<i class="fa fa-cart-plus f-left"></i>
+												<!--<i class="fa fa-cart-plus f-left"></i>-->
 											</h2>
 											<!--
 										<p class="m-b-0">
@@ -68,7 +68,7 @@ export default Vue.extend({
 
 <style lang="css">
 body {
-	margin-top: 20px;
+	margin-top: 30px;
 	background: #fafafa;
 }
 .order-card {
@@ -95,7 +95,7 @@ body {
 	border-radius: 5px;
 	-webkit-box-shadow: 0 1px 2.94px 0.06px rgba(4, 26, 55, 0.16);
 	box-shadow: 0 1px 2.94px 0.06px rgba(4, 26, 55, 0.16);
-	border: none;
+	border: palevioletred;
 	margin-bottom: 30px;
 	-webkit-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
@@ -103,10 +103,14 @@ body {
 
 .card .card-block {
 	padding: 25px;
+	size: 30cm;
+	font-style: normal;
+	font-family: 'Times New Roman', Times, serif;
+	height: 3cm;
 }
 
 .order-card i {
-	font-size: 26px;
+	font-size: 46px;
 }
 
 .f-left {
