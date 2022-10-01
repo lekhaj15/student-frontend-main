@@ -188,7 +188,7 @@
 							<div class="col-6">
 								<button
 									class="btn btn-success btn-block font-weight-bold"
-									@click.prevent="postQuestionStore"
+									@click.prevent="postStaffQuestionStore"
 								>
 									ADD
 								</button>
@@ -237,10 +237,10 @@ export default Vue.extend({
 		onTopicSelect(topic) {
 			this.form.topic_id = topic.id;
 		},
-		async postQuestionStore() {
+		async postStaffQuestionStore() {
 			try {
 				const res = await this.$axios.post(
-					`/institute/question/store`,
+					`/institute/staffquestion/store`,
 					this.form
 				);
 				if (res.status === 201) {

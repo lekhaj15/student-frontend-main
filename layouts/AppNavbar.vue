@@ -146,6 +146,18 @@
 						<b-dropdown-item to="/institute/questions/add">add</b-dropdown-item>
 					</b-nav-item-dropdown>
 
+					<b-nav-item-dropdown
+						text="staff-questions"
+						toggle-class="nav-link-custom"
+					>
+						<b-dropdown-item to="/institute/staff-questions">
+							index
+						</b-dropdown-item>
+						<b-dropdown-item to="/institute/staff-questions/add">
+							add
+						</b-dropdown-item>
+					</b-nav-item-dropdown>
+
 					<b-nav-item @click="logout">logout</b-nav-item>
 				</b-nav>
 			</nav>

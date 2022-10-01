@@ -29,26 +29,29 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr v-for="question in question" :key="question.id">
-									<td>{{ question.id }}</td>
+								<tr
+									v-for="staff_questions in staff_questions"
+									:key="staff_questions.id"
+								>
+									<td>{{ staff_questions.id }}</td>
 
-									<td>{{ question.question_name }}</td>
+									<td>{{ staff_questions.question_name }}</td>
 
 									<td>
-										{{ question.category_name }}
+										{{ staff_questions.category_name }}
 									</td>
 									<td>
-										{{ question.subcategory_name }}
+										{{ staff_questions.subcategory_name }}
 									</td>
-									<td>{{ question.topic_name }}</td>
-									<td>{{ question.option1 }}</td>
-									<td>{{ question.option2 }}</td>
-									<td>{{ question.option3 }}</td>
-									<td>{{ question.option4 }}</td>
-									<td>{{ $formatDate(question.created_at) }}</td>
+									<td>{{ staff_questions.topic_name }}</td>
+									<td>{{ staff_questions.option1 }}</td>
+									<td>{{ staff_questions.option2 }}</td>
+									<td>{{ staff_questions.option3 }}</td>
+									<td>{{ staff_questions.option4 }}</td>
+									<td>{{ $formatDate(staff_questions.created_at) }}</td>
 									<td>
 										<nuxt-link
-											:to="`/institute/questions/${question.id}/edit`"
+											:to="`/institute/staff-questions/${staff_questions.id}/edit`"
 											class="btn btn-warning btn-sm"
 										>
 											edit
@@ -56,7 +59,9 @@
 										<button
 											type="submit"
 											class="btn btn-danger btn-sm"
-											@click.prevent="deletequestion(question.id, index)"
+											@click.prevent="
+												deletestaff_questions(staff_questions.id, index)
+											"
 										>
 											Delete
 										</button>
@@ -90,24 +95,24 @@ export default Vue.extend({
 		page: 1,
 		total: 1,
 		per_page: 20,
-		question: [],
+		staff_questions: [],
 		validation_errors: [],
 	}),
 	methods: {
-		async getQuestionIndex() {
+		async getstaff_questionsIndex() {
 			try {
 				const res = await this.$axios.get(
-					`/institute/question/index/?page=${this.page}`
+					`/institute/staff-question/index/?page=${this.page}`
 				);
-				this.question = res.data.question.data ?? [];
-				this.total = res.data.question.total ?? 1;
-				this.per_page = res.data.question.per_page ?? 20;
+				this.staff_questions = res.data.staff_questions.data ?? [];
+				this.total = res.data.staff_questions.total ?? 1;
+				this.per_page = res.data.staff_questions.per_page ?? 20;
 			} catch (err) {
 				console.log(err);
 			}
 		},
 
-		async deletequestion(id) {
+		async deletestaff_questions(id) {
 			try {
 				const { value: confirm_referal_code_delete } = await this.$swal({
 					title: 'this can not be undone !',
@@ -124,7 +129,7 @@ export default Vue.extend({
 
 				if (confirm_referal_code_delete) {
 					const res = await this.$axios.post(
-						`/institute/question/delete/${id}`,
+						`/institute/staff_questions/delete/${id}`,
 						{
 							_method: 'DELETE',
 						}
@@ -146,11 +151,11 @@ export default Vue.extend({
 	},
 	watch: {
 		page() {
-			this.getQuestionIndex();
+			this.getstaff_questionsIndex();
 		},
 	},
 	created() {
-		this.getQuestionIndex();
+		this.getstaff_questionsIndex();
 	},
 });
 </script>

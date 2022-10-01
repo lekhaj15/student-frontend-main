@@ -187,7 +187,7 @@
 						<div class="col-6">
 							<button
 								class="btn btn-success btn-block font-weight-bold"
-								@click.prevent="patchQuestionUpdate"
+								@click.prevent="patchStaffQuestionUpdate"
 							>
 								ADD
 							</button>
@@ -236,17 +236,17 @@ export default Vue.extend({
 		onTopicSelect(topic) {
 			this.form.topic_id = topic.id;
 		},
-		async getQuestionEdit() {
+		async getStaffQuestionEdit() {
 			try {
 				const res = await this.$axios.get(
-					`/institute/question/show/${this.$route.params.id}`
+					`/institute/staffquestion/show/${this.$route.params.id}`
 				);
-				this.form.question_name = res.data.question.question_name;
-				this.form.option1 = res.data.question.option1;
-				this.form.option2 = res.data.question.option2;
-				this.form.option3 = res.data.question.option3;
-				this.form.option4 = res.data.question.option4;
-				this.topic = res.data.question.topic_name;
+				this.form.question_name = res.data.staff_questions.question_name;
+				this.form.option1 = res.data.staff_questions.option1;
+				this.form.option2 = res.data.staff_questions.option2;
+				this.form.option3 = res.data.staff_questions.option3;
+				this.form.option4 = res.data.staff_questions.option4;
+				this.topic = res.data.staff_questions.topic_name;
 				// this.question_information =
 				// 	res.data.question.question_information ?? '';
 				// this.form.question =
@@ -269,10 +269,10 @@ export default Vue.extend({
 				console.log(err);
 			}
 		},
-		async patchQuestionUpdate() {
+		async patchStaffQuestionUpdate() {
 			try {
 				const res = await this.$axios.post(
-					`/institute/question/update/${this.$route.params.id}`,
+					`/institute/staffquestion/update/${this.$route.params.id}`,
 					this.form
 				);
 				if (res.status === 202) {
@@ -316,7 +316,7 @@ export default Vue.extend({
 	},
 
 	created() {
-		this.getQuestionEdit();
+		this.getStaffQuestionEdit();
 		this.getGradeCategory();
 		this.getTopic();
 	},
