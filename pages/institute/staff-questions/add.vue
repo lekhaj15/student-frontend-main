@@ -240,7 +240,7 @@ export default Vue.extend({
 		async postStaffQuestionStore() {
 			try {
 				const res = await this.$axios.post(
-					`/institute/staffquestion/store`,
+					`/institute/staff-question/store`,
 					this.form
 				);
 				if (res.status === 201) {

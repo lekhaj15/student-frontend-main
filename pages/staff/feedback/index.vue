@@ -13,7 +13,7 @@
 								:key="index"
 							>
 								<div class="card bg-c-gray order-card">
-									<nuxt-link :to="`/student/feedback/question/${tp.id}`">
+									<nuxt-link :to="`/staff/feedback/question/${tp.id}`">
 										<div class="card-block">
 											<h4 class="m-b-20">{{ tp.topic_name }}</h4>
 											<h2 class="text-right">
@@ -43,7 +43,7 @@ import PageTabs from '~/pages/PageTabs.vue';
 import ValidationErrors from '@/components/ValidationErrors.vue';
 
 export default Vue.extend({
-	middleware: ['auth', 'is-student'],
+	middleware: ['auth', 'is-staff'],
 	components: { ValidationErrors },
 	data: () => ({
 		topic: [],
@@ -52,7 +52,7 @@ export default Vue.extend({
 	methods: {
 		async getTopicIndex() {
 			try {
-				const res = await this.$axios.get(`/student/topic`);
+				const res = await this.$axios.get(`/staff/topic`);
 				this.topic = res.data.topic ?? [];
 			} catch (err) {
 				console.log(err);
