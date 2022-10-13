@@ -218,6 +218,7 @@ export default Vue.extend({
 			category_id: '',
 			subcategory_id: '',
 			topic_id: '',
+			_method: 'PATCH',
 		},
 		topic: [],
 		categories: [],
