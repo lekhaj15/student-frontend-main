@@ -15,14 +15,16 @@
 							<thead>
 								<tr>
 									<th>#</th>
-									<th>name</th>
-									<th>email</th>
+									<th>Institute name</th>
+									<th>Name</th>
+									<th>Email</th>
 									<th>created_at</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr v-for="staff in staffs" :key="staff.id">
 									<td>{{ staff.id }}</td>
+									<td>{{ staff.institute_information.full_name }}</td>
 									<td>{{ staff.staff_name }}</td>
 									<td>{{ staff.staff_email }}</td>
 

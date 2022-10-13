@@ -13,7 +13,6 @@
 										<div class="card-block">
 											<h6 class="m-b-20">Total class</h6>
 											<h2 class="text-right">
-												<i class="fa fa-cart-plus f-left"></i>
 												<span>{{ category_count }}</span>
 											</h2>
 											<!--
@@ -32,7 +31,6 @@
 										<div class="card-block">
 											<h6 class="m-b-20">Total Section</h6>
 											<h2 class="text-right">
-												<i class="fa fa-rocket f-left"></i>
 												<span>{{ subcategory_count }}</span>
 											</h2>
 
@@ -51,7 +49,6 @@
 										<div class="card-block">
 											<h6 class="m-b-20">Total Student</h6>
 											<h2 class="text-right">
-												<i class="fa fa-refresh f-left"></i>
 												<span>{{ studentcount }}</span>
 											</h2>
 											<!-- <p class="m-b-0">
@@ -69,7 +66,6 @@
 										<div class="card-block">
 											<h6 class="m-b-20">Total Staff</h6>
 											<h2 class="text-right">
-												<i class="fa fa-credit-card f-left"></i>
 												<span>{{ staffcount }}</span>
 											</h2>
 											<!-- <p class="m-b-0">
