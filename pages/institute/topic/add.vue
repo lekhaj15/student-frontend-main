@@ -15,6 +15,79 @@
 						<div class="form-group col-12">
 							<hr class="m-0" />
 						</div>
+						<div class="form-group col-md-6">
+							<label for="full_name" class="font-weight-bold">
+								Class
+								<span class="text-danger">*</span>
+							</label>
+							<v-select
+								id="grade_category"
+								label="category_name"
+								:options="categories"
+								@option:selected="onCategorySelect"
+							>
+								<template v-slot:no-options="{ search, searching }">
+									<template v-if="searching">
+										No results found for
+										<em>{{ search }}</em>
+										.
+									</template>
+									<em class="opacity-50" v-else>Start typing to search.</em>
+								</template>
+								<template v-slot:option="option">
+									{{ option.category_name }}
+								</template>
+								<template v-slot:selected-option="option">
+									{{ option.category_name }}
+								</template>
+							</v-select>
+						</div>
+
+						<div class="form-group col-md-6">
+							<label for="full_name" class="font-weight-bold">
+								Section
+								<span class="text-danger">*</span>
+							</label>
+							<v-select
+								id="grade_category"
+								label="category_name"
+								:options="subcategory"
+								@option:selected="onSubCategorySelect"
+							>
+								<template v-slot:no-options="{ search, searching }">
+									<template v-if="searching">
+										No results found for
+										<em>{{ search }}</em>
+										.
+									</template>
+									<em class="opacity-50" v-else>Start typing to search.</em>
+								</template>
+								<template v-slot:option="option">
+									{{ option.subcategory_name }}
+								</template>
+								<template v-slot:selected-option="option">
+									{{ option.subcategory_name }}
+								</template>
+							</v-select>
+						</div>
+
+						<div class="form-group col-md-6">
+							<label for="full_name" class="font-weight-bold">
+								Role
+								<span class="text-danger">*</span>
+							</label>
+							<div class="input-group">
+								<select
+									id="enquiry_status"
+									class="custom-select"
+									v-model="form.topic_role"
+								>
+									<option value="student">Student</option>
+									<option value="staff">Staff</option>
+									<option value="student-staff">Student-Staff</option>
+								</select>
+							</div>
+						</div>
 
 						<div class="form-group col-md-6">
 							<label for="full_name" class="font-weight-bold">
@@ -61,12 +134,24 @@ export default Vue.extend({
 	components: { ValidationErrors },
 	data: () => ({
 		form: {
+			topic_role: 'student',
 			topic_name: '',
+			category_id: '',
+			subcategory_id: '',
 		},
+		categories: [],
+		subcategory: [],
 
 		validation_errors: [],
 	}),
 	methods: {
+		onCategorySelect(categories) {
+			this.form.category_id = categories.id;
+			this.getGradeSubCategory();
+		},
+		onSubCategorySelect(subcategory) {
+			this.form.subcategory_id = subcategory.id;
+		},
 		async posttopicStore() {
 			try {
 				const res = await this.$axios.post(`/institute/topic/store`, this.form);
@@ -82,6 +167,27 @@ export default Vue.extend({
 				this.validation_errors = err.response.data.errors;
 			}
 		},
+		async getGradeCategory() {
+			try {
+				const res = await this.$axios.get(`/institute/category`);
+				this.categories = res.data.categories ?? [];
+			} catch (err) {
+				this.validation_errors = err.response.data.errors;
+			}
+		},
+		async getGradeSubCategory() {
+			try {
+				const res = await this.$axios.get(
+					`/institute/subcategory/${this.form.category_id}`
+				);
+				this.subcategory = res.data.subcategory ?? [];
+			} catch (err) {
+				this.validation_errors = err.response.data.errors;
+			}
+		},
+	},
+	created() {
+		this.getGradeCategory();
 	},
 });
 </script>

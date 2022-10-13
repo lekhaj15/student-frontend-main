@@ -233,6 +233,7 @@ export default Vue.extend({
 		},
 		onSubCategorySelect(subcategory) {
 			this.form.subcategory_id = subcategory.id;
+			this.getTopic();
 		},
 		onTopicSelect(topic) {
 			this.form.topic_id = topic.id;
@@ -265,7 +266,9 @@ export default Vue.extend({
 		},
 		async getTopic() {
 			try {
-				const res = await this.$axios.get(`/institute/topic`);
+				const res = await this.$axios.get(
+					`/institute/topic/${this.form.category_id}/${this.form.subcategory_id}`
+				);
 				this.topic = res.data.topic ?? [];
 			} catch (err) {
 				this.validation_errors = err.response.data.errors;
@@ -284,7 +287,7 @@ export default Vue.extend({
 	},
 	created() {
 		this.getGradeCategory();
-		this.getTopic();
+		// this.getTopic();
 	},
 });
 </script>

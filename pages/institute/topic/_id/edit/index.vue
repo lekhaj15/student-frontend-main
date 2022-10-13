@@ -13,6 +13,23 @@
 							<div class="form-group col-12">
 								<hr class="m-0" />
 							</div>
+							<div class="form-group col-md-6">
+								<label for="full_name" class="font-weight-bold">
+									Role
+									<span class="text-danger">*</span>
+								</label>
+								<div class="input-group">
+									<select
+										id="enquiry_status"
+										class="custom-select"
+										v-model="form.topic_role"
+									>
+										<option value="student">Student</option>
+										<option value="staff">Staff</option>
+										<option value="student-staff">Student-Staff</option>
+									</select>
+								</div>
+							</div>
 							<div class="form-group col-md-7">
 								<label for="full_name" class="font-weight-bold">
 									topic Name
@@ -57,6 +74,7 @@ export default Vue.extend({
 	components: { ValidationErrors },
 	data: () => ({
 		form: {
+			topic_role: '',
 			topic_name: '',
 
 			_method: 'PATCH',
@@ -67,9 +85,10 @@ export default Vue.extend({
 		async gettopicEdit() {
 			try {
 				const res = await this.$axios.get(
-					`/institute/topic/show/${this.$route.params.id}/edit`
+					`/institute/topic/show/${this.$route.params.id}`
 				);
 				this.form.topic_name = res.data.topic.topic_name ?? '';
+				this.form.topic_role = res.data.topic.topic_role ?? '';
 			} catch (err) {
 				console.log(err);
 			}

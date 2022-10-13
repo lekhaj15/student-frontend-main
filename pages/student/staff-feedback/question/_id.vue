@@ -79,7 +79,7 @@ import Vue from 'vue';
 import ValidationErrors from '@/components/ValidationErrors.vue';
 
 export default Vue.extend({
-	middleware: ['auth', 'is-staff'],
+	middleware: ['auth', 'is-student'],
 	components: { ValidationErrors },
 	data: () => ({
 		question: [],
@@ -101,7 +101,7 @@ export default Vue.extend({
 		async getQuestionIndex() {
 			try {
 				const res = await this.$axios.get(
-					`/staff/feedback/${this.$route.params.id}`
+					`/student/feedback/${this.$route.params.id}`
 				);
 				this.question = res.data.question ?? [];
 			} catch (err) {
@@ -112,7 +112,10 @@ export default Vue.extend({
 		async postFeedbackStore() {
 			try {
 				this.form.topic_id = this.$route.params.id;
-				const res = await this.$axios.post(`/staff/feedback/store`, this.form);
+				const res = await this.$axios.post(
+					`/student/feedback/store`,
+					this.form
+				);
 				if (res.status === 201) {
 					await this.$swal({
 						title: 'Answer stored successfully!',

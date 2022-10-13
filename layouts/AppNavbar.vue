@@ -180,6 +180,7 @@
 					<b-nav-item to="/student/dashboard">dashboard</b-nav-item>
 					<b-nav-item to="/student/profile">Profile</b-nav-item>
 					<b-nav-item to="/student/feedback">Feedback</b-nav-item>
+					<b-nav-item to="/student/staff-feedback">Staff Feedback</b-nav-item>
 					<b-nav-item @click="logout">logout</b-nav-item>
 				</b-nav>
 			</nav>
@@ -199,7 +200,10 @@
 			</div>
 			<nav class="mt-2" v-if="isStaffOnly">
 				<b-nav class="text-capitalize" vertical pills>
-					<b-nav-item to="/institute/dashboard">dashboard</b-nav-item>
+					<b-nav-item to="/staff/dashboard">dashboard</b-nav-item>
+					<b-nav-item to="/staff/profile">Profile</b-nav-item>
+					<b-nav-item to="/staff/feedback">Feedback</b-nav-item>
+					<b-nav-item @click="logout">logout</b-nav-item>
 				</b-nav>
 			</nav>
 		</VSimplebar>
