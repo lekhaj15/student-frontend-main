@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<PageTabs />
-		<BarChart
+		<PieChart
 			chart-options=""
 			chart-data=""
 			chart-id=""
@@ -50,9 +50,9 @@
 </template>
 
 <script lang="ts">
-import { Bar } from 'vue-chartjs/legacy';
+import { Pie } from 'vue-chartjs/legacy';
 import Vue from 'vue';
-import BarChart from '~/components/BarChart.vue';
+import pieChart from '~/components/BarChart.vue';
 import PageTabs from '~/pages/PageTabs.vue';
 
 export default Vue.extend({
@@ -63,7 +63,7 @@ export default Vue.extend({
 			id: 'dashboard',
 		},
 	},
-	components: { PageTabs, BarChart },
+	components: { PageTabs, PieChart },
 });
 </script>
 
