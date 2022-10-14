@@ -64,7 +64,7 @@ export default {
 	data() {
 		return {
 			chartData: {
-				labels: ['VueJs', 'EmberJs', 'ReactJs', 'AngularJs'],
+				labels: ['Excellent', 'Good', 'Average', 'Poor'],
 				datasets: [
 					{
 						backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'],
