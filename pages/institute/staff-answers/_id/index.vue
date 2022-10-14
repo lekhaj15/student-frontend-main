@@ -15,31 +15,39 @@
 							<thead>
 								<tr>
 									<th>#</th>
-									<th>Class</th>
-									<th>created_at</th>
-									<th>action</th>
+
+									<th>Topic Name</th>
+									<th>Question_name</th>
+									<th>Option1</th>
+									<th>Option2</th>
+									<th>Option3</th>
+									<th>Option4</th>
+									<th>Staff selected answer</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr v-for="category in categories" :key="category.id">
-									<td>{{ category.id }}</td>
-									<td>{{ category.category_name }}</td>
+								<tr
+									v-for="staff_answers in staff_answers"
+									:key="staff_answers.id"
+								>
+									<td>{{ staff_answers.id }}</td>
 
-									<td>{{ $formatDate(category.created_at) }}</td>
+									<td>{{ staff_answers.topic_name }}</td>
+									<td>{{ staff_answers.question_name }}</td>
 									<td>
-										<nuxt-link
-											:to="`/institute/grade-category/${category.id}/edit`"
-											class="btn btn-warning btn-sm"
-										>
-											edit
-										</nuxt-link>
-										<button
-											type="submit"
-											class="btn btn-danger btn-sm"
-											@click.prevent="deleteGradeCategory(category.id, index)"
-										>
-											Delete
-										</button>
+										{{ staff_answers.option1 }}
+									</td>
+									<td>
+										{{ staff_answers.option2 }}
+									</td>
+									<td>
+										{{ staff_answers.option3 }}
+									</td>
+									<td>
+										{{ staff_answers.option4 }}
+									</td>
+									<td>
+										{{ staff_answers.answer_name }}
 									</td>
 								</tr>
 							</tbody>
@@ -58,41 +66,37 @@
 	</div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue';
 
 import ValidationErrors from '@/components/ValidationErrors.vue';
 
 export default Vue.extend({
 	middleware: ['auth', 'is-institute'],
-	head: {
-		title: 'Grade Category',
-		bodyAttrs: {
-			id: 'grade_category',
-		},
-	},
 	components: { ValidationErrors },
 	data: () => ({
-		categories: [],
 		page: 1,
 		total: 1,
-		per_page: 15,
+		per_page: 20,
+		staff_answers: [],
 		validation_errors: [],
 	}),
 	methods: {
-		async getGradeCategoryIndex() {
+		async getStaffAnswerInformationIndex() {
 			try {
 				const res = await this.$axios.get(
-					`/institute/category/index/?page=${this.page}`
+					`/institute/staff-answers/index/${this.$route.params.id}`
 				);
-				this.categories = res.data.category.data ?? [];
-				this.total = res.data.category.total ?? 1;
-				this.per_page = res.data.category.per_page ?? 15;
-			} catch (err: any) {
+				this.staff_answers = res.data.staff_answers ?? [];
+				console.log(this.staff_answers);
+				this.total = res.data.staff_answers.total ?? 1;
+				this.per_page = res.data.staff_answers.per_page ?? 20;
+			} catch (err) {
 				console.log(err);
 			}
 		},
-		async deleteGradeCategory(category_id: number, index: number) {
+
+		async deleteStudentInformation(id) {
 			try {
 				const { value: confirm_referal_code_delete } = await this.$swal({
 					title: 'this can not be undone !',
@@ -101,29 +105,26 @@ export default Vue.extend({
 					inputLabel: `enter the admin password`,
 					inputValue: '',
 					showCancelButton: true,
-					inputValidator: (value: any) => {
+					inputValidator: (value) => {
 						if (value != '12345') return 'invalid password try again !';
 						return null;
 					},
 				});
 
 				if (confirm_referal_code_delete) {
-					const res = await this.$axios.post(
-						`/institute/category/delete/${category_id}`,
-						{
-							_method: 'DELETE',
-						}
-					);
+					const res = await this.$axios.post(`/institute/staff/delete/${id}`, {
+						_method: 'DELETE',
+					});
 					if (res.status === 204) {
 						await this.$swal({
 							title: 'Category Deleted  !',
 							icon: 'success',
 							confirmButtonText: 'close',
 						});
-						this.categories.splice(index, 1);
+						this.staff_information.splice(index, 1);
 					}
 				}
-			} catch (err: any) {
+			} catch (err) {
 				console.log(err);
 				// this.validation_errors = err.response.data.errors;
 			}
@@ -131,13 +132,13 @@ export default Vue.extend({
 	},
 	watch: {
 		page() {
-			this.getGradeCategoryIndex();
+			this.getStaffAnswerInformationIndex();
 		},
 	},
 	created() {
-		this.getGradeCategoryIndex();
+		this.getStaffAnswerInformationIndex();
 	},
 });
 </script>
 
-<style lang="less" scoped></style>
+<style lang="scss" scoped></style>

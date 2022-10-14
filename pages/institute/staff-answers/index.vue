@@ -15,31 +15,42 @@
 							<thead>
 								<tr>
 									<th>#</th>
+
+									<th>Staff Id</th>
+									<th>Staff Name</th>
 									<th>Class</th>
+									<th>Section</th>
+
 									<th>created_at</th>
 									<th>action</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr v-for="category in categories" :key="category.id">
-									<td>{{ category.id }}</td>
-									<td>{{ category.category_name }}</td>
+								<tr
+									v-for="staff_information in staff_information"
+									:key="staff_information.id"
+								>
+									<td>{{ staff_information.id }}</td>
 
-									<td>{{ $formatDate(category.created_at) }}</td>
+									<td>{{ staff_information.staff_id }}</td>
+									<td>{{ staff_information.staff_name }}</td>
+									<td>
+										{{ staff_information.category_information.category_name }}
+									</td>
+									<td>
+										{{
+											staff_information.subcategory_information.subcategory_name
+										}}
+									</td>
+
+									<td>{{ $formatDate(staff_information.created_at) }}</td>
 									<td>
 										<nuxt-link
-											:to="`/institute/grade-category/${category.id}/edit`"
+											:to="`/institute/staff-answers/${staff_information.id}`"
 											class="btn btn-warning btn-sm"
 										>
-											edit
+											view
 										</nuxt-link>
-										<button
-											type="submit"
-											class="btn btn-danger btn-sm"
-											@click.prevent="deleteGradeCategory(category.id, index)"
-										>
-											Delete
-										</button>
 									</td>
 								</tr>
 							</tbody>
@@ -58,41 +69,37 @@
 	</div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue';
 
 import ValidationErrors from '@/components/ValidationErrors.vue';
 
 export default Vue.extend({
 	middleware: ['auth', 'is-institute'],
-	head: {
-		title: 'Grade Category',
-		bodyAttrs: {
-			id: 'grade_category',
-		},
-	},
 	components: { ValidationErrors },
 	data: () => ({
-		categories: [],
 		page: 1,
 		total: 1,
-		per_page: 15,
+		per_page: 20,
+		staff_information: [],
 		validation_errors: [],
 	}),
 	methods: {
-		async getGradeCategoryIndex() {
+		async getStaffInformationIndex() {
 			try {
 				const res = await this.$axios.get(
-					`/institute/category/index/?page=${this.page}`
+					`/institute/staff/index/?page=${this.page}`
 				);
-				this.categories = res.data.category.data ?? [];
-				this.total = res.data.category.total ?? 1;
-				this.per_page = res.data.category.per_page ?? 15;
-			} catch (err: any) {
+				this.staff_information = res.data.staff_information.data ?? [];
+				console.log(this.staff_information);
+				this.total = res.data.staff_information.total ?? 1;
+				this.per_page = res.data.staff_information.per_page ?? 20;
+			} catch (err) {
 				console.log(err);
 			}
 		},
-		async deleteGradeCategory(category_id: number, index: number) {
+
+		async deleteStudentInformation(id) {
 			try {
 				const { value: confirm_referal_code_delete } = await this.$swal({
 					title: 'this can not be undone !',
@@ -101,7 +108,7 @@ export default Vue.extend({
 					inputLabel: `enter the admin password`,
 					inputValue: '',
 					showCancelButton: true,
-					inputValidator: (value: any) => {
+					inputValidator: (value) => {
 						if (value != '12345') return 'invalid password try again !';
 						return null;
 					},
@@ -109,7 +116,7 @@ export default Vue.extend({
 
 				if (confirm_referal_code_delete) {
 					const res = await this.$axios.post(
-						`/institute/category/delete/${category_id}`,
+						`/institute/student/delete/${id}`,
 						{
 							_method: 'DELETE',
 						}
@@ -120,10 +127,10 @@ export default Vue.extend({
 							icon: 'success',
 							confirmButtonText: 'close',
 						});
-						this.categories.splice(index, 1);
+						this.staff_information.splice(index, 1);
 					}
 				}
-			} catch (err: any) {
+			} catch (err) {
 				console.log(err);
 				// this.validation_errors = err.response.data.errors;
 			}
@@ -131,13 +138,13 @@ export default Vue.extend({
 	},
 	watch: {
 		page() {
-			this.getGradeCategoryIndex();
+			this.getStaffInformationIndex();
 		},
 	},
 	created() {
-		this.getGradeCategoryIndex();
+		this.getStaffInformationIndex();
 	},
 });
 </script>
 
-<style lang="less" scoped></style>
+<style lang="scss" scoped></style>

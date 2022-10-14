@@ -84,7 +84,7 @@
 						text="admin-grade"
 						toggle-class="nav-link-custom"
 					>
-						<b-dropdown-item to="/admin/grade">index</b-dropdown-item>
+						<b-dropdown-item to="/admin/category">index</b-dropdown-item>
 					</b-nav-item-dropdown>
 
 					<b-nav-item to="/contact-us">contact us</b-nav-item>
@@ -155,6 +155,22 @@
 						</b-dropdown-item>
 						<b-dropdown-item to="/institute/staff-questions/add">
 							add
+						</b-dropdown-item>
+					</b-nav-item-dropdown>
+					<b-nav-item-dropdown
+						text="student-answers"
+						toggle-class="nav-link-custom"
+					>
+						<b-dropdown-item to="/institute/student-answers">
+							index
+						</b-dropdown-item>
+					</b-nav-item-dropdown>
+					<b-nav-item-dropdown
+						text="staff-answers"
+						toggle-class="nav-link-custom"
+					>
+						<b-dropdown-item to="/institute/staff-answers">
+							index
 						</b-dropdown-item>
 					</b-nav-item-dropdown>
 

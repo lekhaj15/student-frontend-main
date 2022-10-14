@@ -218,6 +218,7 @@ export default Vue.extend({
 			category_id: '',
 			subcategory_id: '',
 			topic_id: '',
+			_method: 'PATCH',
 		},
 		topic: [],
 		categories: [],
@@ -239,7 +240,7 @@ export default Vue.extend({
 		async getStaffQuestionEdit() {
 			try {
 				const res = await this.$axios.get(
-					`/institute/staffquestion/show/${this.$route.params.id}`
+					`/institute/staff-question/show/${this.$route.params.id}`
 				);
 				this.form.question_name = res.data.staff_questions.question_name;
 				this.form.option1 = res.data.staff_questions.option1;
@@ -272,7 +273,7 @@ export default Vue.extend({
 		async patchStaffQuestionUpdate() {
 			try {
 				const res = await this.$axios.post(
-					`/institute/staffquestion/update/${this.$route.params.id}`,
+					`/institute/staff-question/update/${this.$route.params.id}`,
 					this.form
 				);
 				if (res.status === 202) {

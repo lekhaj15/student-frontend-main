@@ -85,7 +85,7 @@ export default Vue.extend({
 		async gettopicEdit() {
 			try {
 				const res = await this.$axios.get(
-					`/institute/topic/show/${this.$route.params.id}`
+					`/institute/topic/show/${this.$route.params.id}/edit`
 				);
 				this.form.topic_name = res.data.topic.topic_name ?? '';
 				this.form.topic_role = res.data.topic.topic_role ?? '';

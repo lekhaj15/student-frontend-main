@@ -18,7 +18,7 @@
 
 						<div class="form-group col-md-6">
 							<label for="full_name" class="font-weight-bold">
-								Category Name
+								Class
 								<span class="text-danger">*</span>
 							</label>
 							<div class="input-group">

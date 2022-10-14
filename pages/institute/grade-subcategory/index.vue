@@ -15,8 +15,8 @@
 							<thead>
 								<tr>
 									<th>#</th>
-									<th>category_name</th>
-									<th>subcategory_name</th>
+									<th>Class</th>
+									<th>Section</th>
 
 									<th>created_at</th>
 									<th>action</th>

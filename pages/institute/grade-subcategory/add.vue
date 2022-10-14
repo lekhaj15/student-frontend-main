@@ -10,7 +10,7 @@
 					<div class="card text-dark text-dark text-capitalize">
 						<div class="card-body form-row">
 							<div class="col-12">
-								<h5 class="font-weight-bold">SUBCATEGORY</h5>
+								<h5 class="font-weight-bold">SECTION</h5>
 							</div>
 
 							<div class="form-group col-12">
@@ -18,7 +18,7 @@
 							</div>
 
 							<div class="form-group col-md-6">
-								<label for="grade_category">Category:</label>
+								<label for="grade_category">Class</label>
 								<v-select
 									id="grade_category"
 									label="category_name"
@@ -43,7 +43,7 @@
 							</div>
 							<div class="form-group col-md-6">
 								<label for="full_name" class="font-weight-bold">
-									SubCategory Name
+									Section
 									<span class="text-danger">*</span>
 								</label>
 								<div class="input-group">
