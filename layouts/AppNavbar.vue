@@ -173,6 +173,9 @@
 							index
 						</b-dropdown-item>
 					</b-nav-item-dropdown>
+					<b-nav-item-dropdown text="report" toggle-class="nav-link-custom">
+						<b-dropdown-item to="/institute/Report">index</b-dropdown-item>
+					</b-nav-item-dropdown>
 
 					<b-nav-item @click="logout">logout</b-nav-item>
 				</b-nav>

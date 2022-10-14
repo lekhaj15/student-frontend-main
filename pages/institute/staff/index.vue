@@ -104,9 +104,9 @@ export default Vue.extend({
 				const res = await this.$axios.get(
 					`/institute/staff/index/?page=${this.page}`
 				);
-				this.staff_information = res.data.staffinformation.data ?? [];
-				this.total = res.data.staffinformation.total ?? 1;
-				this.per_page = res.data.staffinformation.per_page ?? 20;
+				this.staff_information = res.data.staff_information.data ?? [];
+				this.total = res.data.staff_information.total ?? 1;
+				this.per_page = res.data.staff_information.per_page ?? 20;
 			} catch (err) {
 				console.log(err);
 			}

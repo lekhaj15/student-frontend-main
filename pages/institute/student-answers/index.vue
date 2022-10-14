@@ -21,7 +21,6 @@
 									<th>Class</th>
 									<th>Section</th>
 
-									<th>created_at</th>
 									<th>action</th>
 								</tr>
 							</thead>
@@ -44,7 +43,6 @@
 										}}
 									</td>
 
-									<td>{{ $formatDate(student_information.created_at) }}</td>
 									<td>
 										<nuxt-link
 											:to="`/institute/student-answers/${student_information.id}`"
