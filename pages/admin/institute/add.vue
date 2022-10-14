@@ -48,7 +48,22 @@
 								/>
 							</div>
 						</div>
-						
+						<div class="form-group col-md-6">
+							<label for="full_name" class="font-weight-bold">
+								Role
+								<span class="text-danger">*</span>
+							</label>
+							<div class="input-group">
+								<input
+									id="full_name"
+									type="text"
+									class="form-control"
+									required
+									maxlength="45"
+									v-model="form.role"
+								/>
+							</div>
+						</div>
 
 						<div class="form-group col-12">
 							<hr class="m-0" />
