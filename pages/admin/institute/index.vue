@@ -16,7 +16,7 @@
 								<tr>
 									<th>#</th>
 									<th>full_name</th>
-									<th>email</th>
+									<th>Email</th>
 									<th>created_at</th>
 									<th>show</th>
 									<th>action</th>

@@ -4,18 +4,17 @@
 			<div class="col-lg-12 mb-4 mb-sm-5">
 				<div class="card card-style1 border-0">
 					<div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
-						<div class="row align-items-center">
-							<div class="col-lg-6 mb-4 mb-lg-0">
+						<div class="row">
+							<div class="col-lg-3 mb-4 mb-lg-0">
 								<img
 									src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png"
 									alt="..."
+									class="img-fluid"
 								/>
 							</div>
 							<div class="col-lg-6 px-xl-10">
-								<div
-									class="bg-secondary d-lg-inline-block py-1-9 px-1-9 px-sm-6 mb-1-9 rounded"
-								>
-									<h3 class="h2 text-white mb-0">
+								<div>
+									<h3 class="h2 text-blue mb-3">
 										{{ profile.student_name }}
 									</h3>
 								</div>
