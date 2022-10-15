@@ -136,6 +136,10 @@
 						<b-dropdown-item to="/institute/staff/add">add</b-dropdown-item>
 					</b-nav-item-dropdown>
 
+					<b-nav-item-dropdown text="subject" toggle-class="nav-link-custom">
+						<b-dropdown-item to="/institute/subject">index</b-dropdown-item>
+						<b-dropdown-item to="/institute/subject/add">add</b-dropdown-item>
+					</b-nav-item-dropdown>
 					<b-nav-item-dropdown text="topic" toggle-class="nav-link-custom">
 						<b-dropdown-item to="/institute/topic">index</b-dropdown-item>
 						<b-dropdown-item to="/institute/topic/add">add</b-dropdown-item>
@@ -397,4 +401,3 @@ body.sidebar-close .wrapper .main-sidebar {
 	}
 }
 </style>
-

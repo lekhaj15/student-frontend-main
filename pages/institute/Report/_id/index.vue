@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
 	<div>
 		<PageTabs />
 		<PieChart
@@ -62,12 +62,10 @@
 </template>
 
 <script lang="ts">
-import { Pie } from 'vue-chartjs/legacy';
 import Vue from 'vue';
-
-import PieChart from '~/components/PieChart.vue';
-import PageTabs from '~/pages/PageTabs.vue';
-
+// import PieChart from '~/components/PieChart.vue';
+// import PageTabs from '~/pages/PageTabs.vue';
+// import { Pie } from 'vue-chartjs/legacy';
 export default Vue.extend({
 	middleware: ['auth', 'is-institute'],
 	head: {
@@ -76,8 +74,8 @@ export default Vue.extend({
 			id: 'dashboard',
 		},
 	},
-	components: { PageTabs, PieChart },
+	// components: { PageTabs, PieChart },
 });
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped></style> -->
