@@ -2,7 +2,7 @@
 	<div>
 		<div class="container-fluid">
 			<section class="row">
-				<div class="col-12">
+				<div class="col-10">
 					<ValidationErrors :errors="validation_errors" />
 				</div>
 
@@ -15,9 +15,8 @@
 							<thead>
 								<tr>
 									<th>#</th>
-									<th>Class</th>
-									<th>Section</th>
-
+									<th>category_name</th>
+									<th>subcategory_name</th>
 									<th>action</th>
 								</tr>
 							</thead>
@@ -29,10 +28,9 @@
 									</td>
 
 									<td>{{ subcategory.subcategory_name }}</td>
-
 									<td>
 										<nuxt-link
-											:to="`/institute/Report/${subcategory.id}/_edit`"
+											:to="`/institute/quiz/${subcategory.id}`"
 											class="btn btn-warning btn-sm"
 										>
 											View
@@ -62,12 +60,6 @@ import ValidationErrors from '@/components/ValidationErrors.vue';
 
 export default Vue.extend({
 	middleware: ['auth', 'is-institute'],
-	head: {
-		title: 'Report',
-		bodyAttrs: {
-			id: 'report',
-		},
-	},
 	components: { ValidationErrors },
 	data: () => ({
 		subcategory: [],
@@ -95,7 +87,7 @@ export default Vue.extend({
 			this.getGradeSubCategoryIndex();
 		},
 	},
-	mounted() {
+	created() {
 		this.getGradeSubCategoryIndex();
 	},
 });

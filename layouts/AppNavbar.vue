@@ -149,6 +149,10 @@
 						<b-dropdown-item to="/institute/questions">index</b-dropdown-item>
 						<b-dropdown-item to="/institute/questions/add">add</b-dropdown-item>
 					</b-nav-item-dropdown>
+					<b-nav-item-dropdown text="quiz" toggle-class="nav-link-custom">
+						<b-dropdown-item to="/institute/quiz">index</b-dropdown-item>
+						<b-dropdown-item to="/institute/quiz/add">add</b-dropdown-item>
+					</b-nav-item-dropdown>
 
 					<b-nav-item-dropdown
 						text="staff-questions"

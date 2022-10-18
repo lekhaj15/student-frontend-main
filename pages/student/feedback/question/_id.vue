@@ -97,6 +97,8 @@ export default Vue.extend({
 				answer: $event.target.value,
 				question_id: q_id,
 			});
+
+			console.log(this.form);
 		},
 		async getQuestionIndex() {
 			try {
@@ -111,6 +113,9 @@ export default Vue.extend({
 
 		async postFeedbackStore() {
 			try {
+				console.log(this.form);
+				console.log(this.$route.params);
+				console.log(this.$route.params.id);
 				this.form.topic_id = this.$route.params.id;
 				const res = await this.$axios.post(
 					`/student/feedback/store`,

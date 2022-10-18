@@ -32,10 +32,10 @@
 
 						<td>{{ question.question_name }}</td>
 
-						<td>{{ question.excellent_count }}</td>
 						<td>{{ question.good_count }}</td>
-						<td>{{ question.avg_count }}</td>
 						<td>{{ question.poor_count }}</td>
+						<td>{{ question.option3 }}</td>
+						<td>{{ question.option4 }}</td>
 					</tr>
 				</tbody>
 			</table>
