@@ -57,12 +57,12 @@ import PageTabs from '~/pages/PageTabs.vue';
 
 export default Vue.extend({
 	//middleware: ['auth', 'is-staff'],
-	head: {
-		title: 'staff Dashboard',
-		bodyAttrs: {
-			id: 'dashboard',
-		},
-	},
+	//head: {
+	//title: 'staff Dashboard',
+	//bodyAttrs: {
+	//	id: 'dashboard',
+	//},
+	//},
 	components: { PageTabs, BarChart },
 });
 </script>

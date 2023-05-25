@@ -13,8 +13,7 @@
 			height="300px"
 		/>
 
-		<div>Dashboard</div>
-		<div>
+		<!--<div>
 			<table class="table">
 				<thead>
 					<tr>
@@ -39,7 +38,7 @@
 					</tr>
 				</tbody>
 			</table>
-		</div>
+		</div>-->
 	</div>
 </template>
 

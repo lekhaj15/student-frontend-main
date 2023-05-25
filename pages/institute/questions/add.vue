@@ -110,7 +110,7 @@
 										type="text"
 										class="form-control"
 										required
-										maxlength="45"
+										maxlength="200"
 										v-model="form.question_name"
 									/>
 								</div>
